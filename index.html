@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Somisha Adak — Data Analytics, SQL, Data Visualization and Technology.">
+<title>Somisha Adak | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --paper: #f7f5ee;
+  --navy: #132238;
+  --blue: #2455ed;
+  --lime: #d7f36d;
+  --coral: #fa8b75;
+  --muted: #586579;
+  --line: #dcded9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+  background: var(--paper);
+}
+a { color: inherit; }
+.wrap { width: min( calc(100% - 40px), 1160px ); margin: auto; }
+.display {
+  font-family: 'Fraunces', serif;
+  letter-spacing: -.055em;
+  line-height: 1.04;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .75rem;
+  font-weight: 700;
+}
+section { padding: 88px 0; }
+.section-head { max-width: 760px; margin-bottom: 35px; }
+.section-head h2 {
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  margin: 12px 0;
+}
+.section-head p { line-height: 1.7; color: var(--muted); }
+
+/* Navigation */
+.nav-shell {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(247,245,238,.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 22px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  font-size: .87rem;
+  font-weight: 700;
+}
+.nav-links a:hover { color: var(--blue); }
+.nav-contact {
+  background: var(--navy);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 30px;
+}
+.menu-toggle {
+  display: none;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: white;
+  font-weight: 700;
+}
+.mobile-links { display: none; padding-bottom: 15px; }
+.mobile-links a {
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Hero */
+.hero {
+  padding: 85px 0 95px;
+  background:
+    radial-gradient(circle at 80% 25%, #edf3d4 0, transparent 35%),
+    var(--paper);
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 45px;
+  align-items: center;
+}
+.status {
+  display: inline-block;
+  background: var(--lime);
+  padding: 9px 14px;
+  border-radius: 30px;
+}
+.hero h1 {
+  font-size: clamp(4rem, 9vw, 8rem);
+  margin: 20px 0;
+}
+.hero-lead {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.45;
+  max-width: 620px;
+}
+.hero-tags, .chips, .stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hero-tags span, .chips span, .stack span {
+  display: inline-block;
+  background: white;
+  border: 1px solid #c8d0d2;
+  border-radius: 30px;
+  padding: 7px 12px;
+  font-size: .78rem;
+  font-weight: 700;
+}
+.availability {
+  max-width: 590px;
+  line-height: 1.7;
+  color: #34435b;
+  margin: 23px 0;
+}
+.actions { display: flex; flex-wrap: wrap; gap: 11px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 21px;
+  min-height: 47px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: .2s;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn-primary { background: var(--blue); color: white; }
+.btn-outline { border: 1.5px solid var(--navy); background: white; }
+.btn-social { border: 1.5px solid var(--navy); background: white; padding: 10px 17px; }
+.location { color: var(--muted); font-size: .9rem; margin-top: 22px; }
+
+/* Decorative dashboard */
+.hero-art {
+  min-height: 440px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.art-board {
+  width: 94%;
+  min-height: 370px;
+  padding: 20px;
+  border: 2px solid var(--navy);
+  border-radius: 28px;
+  background-color: white;
+  box-shadow: 17px 18px 0 var(--navy);
+  transform: rotate(2deg);
+}
+.board-top {
+  background: var(--lime);
+  border: 1.5px solid var(--navy);
+  padding: 13px 16px;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  display: flex;
+  justify-content: space-between;
+}
+.board-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+.mini-panel {
+  min-height: 130px;
+  padding: 15px;
+  border: 1.5px solid var(--navy);
+  border-radius: 15px;
+}
+.mini-panel.blue { background: var(--blue); color: white; }
+.mini-panel.dark { background: var(--navy); color: white; }
+.mini-caption { font-size: .65rem; font-weight: 700; letter-spacing: .14em; }
+.bars {
+  height: 85px;
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  padding-top: 15px;
+}
+.bars i {
+  flex: 1;
+  background: var(--lime);
+  border-radius: 5px 5px 0 0;
+  height: var(--h);
+}
+.bars i:nth-child(even) { background: #a5baff; }
+.ring {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 10px auto;
+  background: conic-gradient(var(--lime) 0 30%, var(--blue) 30% 65%, #a4b8ff 65% 82%, #e7ebf4 82%);
+  display: grid;
+  place-items: center;
+}
+.ring:after {
+  content: "";
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 50%;
+}
+.mini-panel.dark .ring:after { background: var(--navy); }
+.line-art {
+  width: 100%;
+  height: 80px;
+  margin-top: 10px;
+}
+.line-art polyline {
+  fill: none;
+  stroke: var(--lime);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.floating-label {
+  position: absolute;
+  background: var(--coral);
+  border: 2px solid var(--navy);
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-size: .8rem;
+  font-weight: 700;
+  box-shadow: 5px 5px 0 var(--navy);
+}
+.float-one { top: 5px; right: 0; transform: rotate(7deg); }
+.float-two { bottom: 0; left: 0; background: var(--lime); transform: rotate(-6deg); }
+
+/* About */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.5fr .5fr;
+  gap: 50px;
+  align-items: center;
+}
+.about-copy {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.7;
+}
+.fact {
+  padding: 30px;
+  border-radius: 25px;
+  background: var(--lime);
+  border: 1.5px solid var(--navy);
+  box-shadow: 9px 9px 0 var(--navy);
+}
+.fact strong {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-size: 3.5rem;
+  margin-top: 12px;
+}
+
+/* Projects */
+.work { background: #e9efff; }
+.lead-project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: white;
+  border: 1px solid #b9c9eb;
+  border-radius: 27px;
+  overflow: hidden;
+}
+.project-content { padding: 35px; }
+.project h3 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  line-height: 1.15;
+}
+.project p { color: #34435b; line-height: 1.7; }
+.progress-tag {
+  display: inline-block;
+  background: var(--lime);
+  border-radius: 20px;
+  padding: 7px 12px;
+  font-size: .75rem;
+  font-weight: 700;
+}
+.project-art {
+  min-height: 350px;
+  padding: 25px;
+  background: var(--navy);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-content: center;
+}
+.visual-cell {
+  min-height: 120px;
+  padding: 15px;
+  border: 1px solid #ffffff55;
+  border-radius: 15px;
+  background: #ffffff16;
+}
+.visual-cell.wide { grid-column: span 2; }
+.visual-cell .bars { height: 95px; }
+.secondary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin-top: 18px;
+}
+.small-project {
+  background: white;
+  border: 1px solid #cdd6e7;
+  border-radius: 22px;
+  overflow: hidden;
+}
+.project-art-small {
+  height: 130px;
+  display: grid;
+  place-items: center;
+  font-size: 3.3rem;
+}
+.edu-art { background: var(--lime); }
+.vault-art { background: #cbd8ff; }
+.dbt-art { background: #fbd3c8; }
+
+/* Focus */
+.focus { background: var(--navy); color: white; }
+.focus .section-head p { color: #e1e9f1; }
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.focus-tile {
+  min-height: 230px;
+  padding: 23px;
+  border: 1px solid #718198;
+  border-radius: 20px;
+  background: #1c3049;
+}
+.focus-tile:nth-child(2) { background: #2543a6; }
+.focus-tile:nth-child(3) { background: #263b48; }
+.focus-tile:nth-child(4) { background: #33515b; }
+.focus-tile h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+}
+.focus-tile p { color: #e1e9f1; line-height: 1.6; }
+
+/* Experience and achievements */
+.experience-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  padding: 32px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 25px;
+  box-shadow: 9px 9px 0 #dce4ff;
+}
+.experience-card h3, .leadership h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.9rem;
+}
+.experience-card ul { line-height: 1.7; padding-left: 20px; }
+.date { color: var(--blue); font-weight: 700; }
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.achievement {
+  padding: 24px;
+  background: white;
+  border: 1px solid var(--line);
+  border-top: 7px solid var(--coral);
+  border-radius: 20px;
+}
+.achievement h3 {
+  font-family: 'Fraunces', serif;
+  line-height: 1.25;
+}
+.achievement p { line-height: 1.6; }
+
+/* Leadership */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.leadership {
+  background: var(--lime);
+  padding: 27px;
+  border-radius: 23px;
+}
+.leadership p { line-height: 1.65; }
+
+/* Skills */
+.toolkit { background: #ecede7; }
+.toolkit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.tool-group {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+}
+.tool-group h3 { margin-top: 0; }
+
+/* Certifications */
+.cert-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.cert {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  padding: 22px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.cert a { text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.cert a:hover { color: var(--blue); }
+.cert small {
+  display: block;
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+/* Contact */
+.contact { background: var(--blue); color: white; }
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 55px;
+  align-items: end;
+}
+.contact h2 {
+  font-size: clamp(3rem, 6vw, 5.8rem);
+  margin: 15px 0;
+}
+.contact p { line-height: 1.7; }
+.contact .btn { background: var(--lime); color: var(--navy); }
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact-links a, .footer-links a {
+  color: white;
+  text-underline-offset: 5px;
+  overflow-wrap: anywhere;
+}
+footer {
+  background: var(--navy);
+  color: white;
+  padding: 27px 0;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.footer-links { display: flex; gap: 20px; }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .hero-grid, .about-grid, .lead-project, .contact-inner { grid-template-columns: 1fr; }
+  .hero-art { max-width: 620px; width: 100%; margin: auto; }
+  .secondary-grid { grid-template-columns: 1fr 1fr; }
+  .focus-grid { grid-template-columns: 1fr 1fr; }
+  .leadership-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 650px) {
+  section { padding: 65px 0; }
+  .nav-links { display: none; }
+  .menu-toggle { display: block; }
+  .mobile-links.open { display: block; }
+  .hero { padding: 55px 0 70px; }
+  .hero h1 { font-size: clamp(3.6rem, 14vw, 5.5rem); }
+  .hero-art { min-height: 330px; }
+  .art-board { min-height: 300px; padding: 13px; }
+  .mini-panel { min-height: 100px; padding: 10px; }
+  .mini-caption { font-size: .55rem; }
+  .bars { height: 65px; }
+  .ring { width: 70px; height: 70px; }
+  .ring:after { width: 38px; height: 38px; }
+  .about-grid, .secondary-grid, .achievement-grid, .toolkit-grid,
+  .cert-list, .focus-grid, .experience-card { grid-template-columns: 1fr; }
+  .project-content { padding: 25px; }
+  .project-art { min-height: 260px; }
+  .contact-inner { gap: 30px; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav-shell">
+  <nav class="wrap nav-inner">
+    <a class="brand" href="#top">Somisha Adak.</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#focus">Focus</a>
+      <a href="#open-source">Open Source</a>
+      <a href="#skills">Skills</a>
+      <a class="nav-contact" href="#contact">Contact</a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false">Menu</button>
+  </nav>
+  <nav class="mobile-links wrap" id="mobile-links">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#focus">Focus</a>
+    <a href="#open-source">Open Source</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+<div class="wrap hero-grid">
+  <div>
+    <span class="status eyebrow">Open to work</span>
+    <h1 class="display">Hi, I’m Somisha.</h1>
+    <p class="hero-lead">I turn data into clear stories and build products that make technology useful.</p>
+
+    <div class="hero-tags">
+      <span>Data Analytics</span>
+      <span>SQL</span>
+      <span>Data Visualization</span>
+      <span>Full-Stack Development</span>
+    </div>
+
+    <p class="availability">
+      Available for freelance projects. Actively seeking internships and full-time roles in Data Analytics, Data Engineering and related data-focused roles.
+    </p>
+
+    <div class="actions">
+      <a href="#work" class="btn btn-primary">Explore my work</a>
+      <a href="mailto:somisha.adak@gmail.com?subject=Let's%20collaborate" class="btn btn-outline">Let’s collaborate</a>
+      <a href="https://github.com/SomishaAdak" target="_blank" rel="noopener noreferrer" class="btn btn-social">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/somisha-adak" target="_blank" rel="noopener noreferrer" class="btn btn-social">LinkedIn ↗</a>
+    </div>
+    <p class="location">Mumbai, India</p>
+  </div>
+
+  <div class="hero-art" aria-label="Decorative data dashboard">
+    <div class="art-board">
+      <div class="board-top"><span>DATA / LAB</span><span>◉ &nbsp; ◉ &nbsp; ◉</span></div>
+      <div class="board-content">
+        <div class="mini-panel blue">
+          <span class="mini-caption">PATTERNS</span>
+          <div class="bars">
+            <i style="--h:38%"></i><i style="--h:72%"></i><i style="--h:54%"></i><i style="--h:88%"></i><i style="--h:62%"></i>
+          </div>
+        </div>
+        <div class="mini-panel">
+          <span class="mini-caption">SEGMENTS</span><div class="ring"></div>
+        </div>
+        <div class="mini-panel dark">
+          <span class="mini-caption">EXPLORATION</span>
+          <svg class="line-art" viewBox="0 0 230 90"><polyline points="4,70 44,52 82,60 122,25 165,43 225,10"></polyline></svg>
+        </div>
+        <div class="mini-panel">
+          <span class="mini-caption">CONNECTIONS</span>
+          <div class="bars"><i style="--h:35%"></i><i style="--h:85%"></i><i style="--h:55%"></i><i style="--h:95%"></i></div>
+        </div>
+      </div>
+    </div>
+    <span class="floating-label float-one">SQL · Python</span>
+    <span class="floating-label float-two">BI · API</span>
+  </div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="wrap about-grid">
+  <div>
+    <span class="eyebrow" style="color:var(--blue)">01 / ABOUT</span>
+    <h2 class="display" style="font-size:clamp(2.5rem,5vw,4.5rem)">Curiosity, with a practical edge.</h2>
+    <p class="about-copy">
+      I’m an Information Technology B.Tech student at Usha Mittal Institute of Technology, SNDT University, Mumbai, with a Management Essentials minor. I’m interested in the intersection of data, technology and business. I especially enjoy working with SQL, exploring datasets, finding patterns, and communicating insights through graphs, charts and dashboards.
+    </p>
+  </div>
+  <aside class="fact">
+    <span class="eyebrow">Academic GPA</span>
+    <strong>9.343/10</strong>
+  </aside>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="work" class="work">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow" style="color:var(--blue)">02 / SELECTED PROJECTS</span>
+    <h2 class="display">Featured work</h2>
+  </div>
+
+  <article class="lead-project">
+    <div class="project-content">
+      <span class="progress-tag">In progress</span>
+      <h3>Credit Card Customer Analytics &amp; Risk Intelligence</h3>
+      <p>
+        Developing an end-to-end analytics solution examining customer spending patterns, credit utilization, payment behaviour and delinquency across customer segments. SQL joins, aggregations and window functions support segmentation, trend analysis and financial metrics. Python and Pandas support exploratory data analysis. A Power BI dashboard brings together customer activity, spending trends and credit risk indicators.
+      </p>
+      <div class="stack">
+        <span>SQL</span><span>PostgreSQL</span><span>Python</span><span>Pandas</span><span>Power BI</span>
+      </div>
+    </div>
+    <div class="project-art">
+      <div class="visual-cell wide">
+        <div class="bars">
+          <i style="--h:45%"></i><i style="--h:65%"></i><i style="--h:36%"></i><i style="--h:76%"></i><i style="--h:55%"></i><i style="--h:91%"></i><i style="--h:64%"></i>
+        </div>
+      </div>
+      <div class="visual-cell"><div class="ring"></div></div>
+      <div class="visual-cell">
+        <svg class="line-art" viewBox="0 0 230 90"><polyline points="4,68 40,58 74,70 110,30 145,46 185,15 225,25"></polyline></svg>
+      </div>
+    </div>
+  </article>
+
+  <div class="secondary-grid">
+    <article class="small-project">
+      <div class="project-art-small edu-art">▤</div>
+      <div class="project-content">
+        <h3>EduPath, Career Guidance &amp; Student Analytics Platform</h3>
+        <p>Helps grades 10–12 explore academic streams, career pathways and educational opportunities, with structured data management and interactive visualizations for academic and career insights.</p>
+        <div class="stack"><span>Python</span><span>React</span><span>SQLite</span><span>Chart.js</span></div>
+      </div>
+    </article>
+
+    <article class="small-project">
+      <div class="project-art-small vault-art">◈</div>
+      <div class="project-content">
+        <h3>Nidhi Rakshak, Secure Digital Vault &amp; Inheritance Platform</h3>
+        <p>Secure platform centralizing sensitive financial and legal records, with an automated dead-man-switch mechanism. Relational PostgreSQL schemas and SQL queries support users, nominees and records.</p>
+        <div class="stack"><span>TypeScript</span><span>Next.js</span><span>PostgreSQL</span><span>Supabase</span></div>
+      </div>
+    </article>
+
+    <article class="small-project">
+      <div class="project-art-small dbt-art">⌘</div>
+      <div class="project-content">
+        <h3>DBT Buddy, Aadhaar and Direct Benefit Transfer Awareness Platform</h3>
+        <p>Helps students understand DBT schemes, eligibility, documentation and applications, with role-based student, teacher and admin dashboards.</p>
+        <div class="stack"><span>React</span><span>Node.js</span><span>Express</span><span>PostgreSQL</span></div>
+      </div>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- DATA FOCUS -->
+<section class="focus" id="focus">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow" style="color:var(--lime)">03 / DATA FOCUS</span>
+    <h2 class="display">My kind of problem-solving</h2>
+    <p>SQL, data analysis, data visualization, graphs, charts, business analytics and customer analytics are the tools and questions I keep coming back to.</p>
+  </div>
+  <div class="focus-grid">
+    <article class="focus-tile"><h3>SQL first</h3><p>Querying, joins, aggregations and window functions.</p></article>
+    <article class="focus-tile"><h3>Find the pattern</h3><p>Exploratory analysis and thoughtful segmentation.</p></article>
+    <article class="focus-tile"><h3>Make it visible</h3><p>Graphs, charts and dashboards that clarify the picture.</p></article>
+    <article class="focus-tile"><h3>Tell the story</h3><p>Translate findings into clear, useful insights.</p></article>
+  </div>
+</div>
+</section>
+
+<!-- OPEN SOURCE -->
+<section id="open-source">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow" style="color:var(--blue)">04 / CONTRIBUTIONS</span>
+    <h2 class="display">Open source experience</h2>
+  </div>
+  <article class="experience-card">
+    <div>
+      <span class="date">Feb 2026 to Present</span>
+      <h3>MetaBrainz Foundation, ListenBrainz</h3>
+      <p class="eyebrow">Open Source Contributor</p>
+    </div>
+    <div>
+      <ul>
+        <li>Submitted multiple merged pull requests to a production React and TypeScript codebase.</li>
+        <li>Diagnosed and fixed a frontend data-integrity bug by tracing backend-to-UI event propagation and validating data consistency across components.</li>
+      </ul>
+      <div class="chips">
+        <span>React.js</span><span>TypeScript</span><span>Jira</span><span>Git</span><span>PostgreSQL</span><span>Python</span>
+      </div>
+    </div>
+  </article>
+</div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section>
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow" style="color:var(--blue)">05 / MILESTONES</span>
+    <h2 class="display">Achievements</h2>
+  </div>
+  <div class="achievement-grid">
+    <article class="achievement">
+      <h3>IIT Bombay Techfest 2026 Campus Ambassador</h3>
+      <p>Supporting creative, web development and social outreach initiatives.</p>
+    </article>
+    <article class="achievement">
+      <h3>ByteBlitz Hackathon Winner at GDG UMIT</h3>
+      <p>A four-day coding challenge and mini hackathon.</p>
+    </article>
+    <article class="achievement">
+      <h3>Smart India Hackathon qualifier</h3>
+      <p>Collaborated on technology-driven problem solving in a national-level innovation challenge.</p>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- LEADERSHIP -->
+<section>
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow" style="color:var(--blue)">06 / COMMUNITY</span>
+    <h2 class="display">Leadership</h2>
+  </div>
+  <div class="leadership-grid">
+    <article class="leadership">
+      <span class="eyebrow">2023 to 2025</span>
+      <h3>Representative and Junior Council Member</h3>
+      <p><strong>Computer Society of India, UMIT</strong></p>
+      <p>Coordinated technical events, sponsorship activities and cross-functional initiatives, supporting event execution and team operations.</p>
+    </article>
+    <article class="leadership">
+      <span class="eyebrow">2019 to 2020</span>
+      <h3>Head Girl</h3>
+      <p><strong>Universal High School</strong></p>
+      <p>Represented a 500+ student body and coordinated academic, cultural and student-led activities.</p>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="toolkit">
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow" style="color:var(--blue)">07 / WHAT I USE</span>
+    <h2 class="display">Skills</h2>
+  </div>
+  <div class="toolkit-grid">
+    <article class="tool-group">
+      <h3>Data Analytics</h3>
+      <div class="chips"><span>SQL</span><span>PostgreSQL</span><span>Python</span><span>Pandas</span><span>NumPy</span><span>Excel</span><span>Power BI</span><span>Chart.js</span></div>
+    </article>
+    <article class="tool-group">
+      <h3>Programming</h3>
+      <div class="chips"><span>Java</span><span>C++</span><span>JavaScript</span><span>TypeScript</span></div>
+    </article>
+    <article class="tool-group">
+      <h3>Development</h3>
+      <div class="chips"><span>React.js</span><span>Next.js</span><span>HTML5</span><span>CSS3</span><span>REST APIs</span></div>
+    </article>
+    <article class="tool-group">
+      <h3>Tools</h3>
+      <div class="chips"><span>Git</span><span>Jira</span><span>AWS basics</span><span>Docker basics</span></div>
+    </article>
+    <article class="tool-group">
+      <h3>Core Concepts</h3>
+      <div class="chips"><span>DBMS</span><span>Data Analysis</span><span>Data Visualization</span><span>OOP</span><span>Operating Systems</span><span>Computer Networks</span><span>Machine Learning</span><span>GenAI</span><span>NLP</span></div>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section>
+<div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow" style="color:var(--blue)">08 / LEARNING</span>
+    <h2 class="display">Certifications</h2>
+  </div>
+  <div class="cert-list">
+    <article class="cert">
+      <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=F4D3CD80B1A3132C7A48EFD30591378FB4E04B9720A8926A13F39E9132BF1EA7" target="_blank" rel="noopener noreferrer">
+        Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate ↗
+      </a>
+      <small>Jun 2026 · Verify certificate</small>
+    </article>
+    <article class="cert">
+      AWS Cloud Practitioner Essentials
+    </article>
+    <article class="cert">
+      <a href="https://www.futureskillsprime.in/LX/ecertificate/verification?id=42701970-18690-904809-7" target="_blank" rel="noopener noreferrer">
+        Gen AI 101, NASSCOM (IT-ITeS SSC) ↗
+      </a>
+      <small>Feb 2026 · Verify certificate</small>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="wrap contact-inner">
+  <div>
+    <span class="eyebrow" style="color:var(--lime)">09 / SAY HELLO</span>
+    <h2 class="display">Let’s make something useful.</h2>
+    <p>Open to freelance collaborations, internships and full-time roles in data-focused work.</p>
+    <a href="mailto:somisha.adak@gmail.com?subject=Let's%20collaborate" class="btn">Let’s collaborate</a>
+  </div>
+  <div class="contact-links">
+    <span>Mumbai, India</span>
+    <a href="mailto:somisha.adak@gmail.com">somisha.adak@gmail.com</a>
+    <a href="https://www.linkedin.com/in/somisha-adak" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a href="https://github.com/SomishaAdak" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap footer-inner">
+  <span>Somisha Adak · Data, products and useful technology.</span>
+  <div class="footer-links">
+    <a href="mailto:somisha.adak@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/somisha-adak" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://github.com/SomishaAdak" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+</div>
+</footer>
+
+<script>
+const menuButton = document.getElementById('menu-toggle');
+const mobileLinks = document.getElementById('mobile-links');
+
+menuButton.addEventListener('click', () => {
+  const isOpen = mobileLinks.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(isOpen));
+});
+
+mobileLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileLinks.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
+</html>
